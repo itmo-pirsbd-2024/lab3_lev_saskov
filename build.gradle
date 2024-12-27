@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.github.reyerizo.gradle.jcstress" version "0.8.15"
 }
 
 group = 'ru.ozon.search.o2.o2-models'
@@ -10,8 +11,12 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation platform(libs.junit.bom)
+    testImplementation platform(libs.assertj.bom)
+    testImplementation libs.junit.jupiter
+    testImplementation libs.assertj.core
+
+    implementation libs.jcstress
 }
 
 test {
